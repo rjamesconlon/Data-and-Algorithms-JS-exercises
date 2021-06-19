@@ -1,6 +1,7 @@
-function reverse(){
-    // add whatever parameters you deem necessary - good luck!
-  }
+function reverse(s) {
+    if (s.length <= 1) return s;
+    else return s[s.length - 1] + reverse(s.slice(0, s.length - 1))
+}
   
-reverse('awesome') // 'emosewa'
-reverse('rithmschool') // 'loohcsmhtir'
+console.log(reverse('awesome')); // 'emosewa'
+console.log(reverse('rithmschool')); // 'loohcsmhtir'
