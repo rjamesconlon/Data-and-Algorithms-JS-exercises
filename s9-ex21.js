@@ -1,4 +1,4 @@
-function capitalizedWords (arr) {
+function capitalizedWords(arr) {
     let newA = [];
 
 
