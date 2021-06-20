@@ -1,7 +1,6 @@
 function capitalizeFirst (arr) {
 
     function f(a, n) {
-        console.log(a);
         if (a.length === n) return;
         else a[n] = a[n].charAt(0).toUpperCase() + a[n].slice(1);
         return f(a, ++n);
@@ -25,5 +24,5 @@ function capitalizeFirst (arr) {
 //     return res;
 // }
   
-console.log(capitalizeWords(['car','taco','banana'])); // ['Car','Taco','Banana']
+console.log(capitalizeFirst(['car','taco','banana'])); // ['Car','Taco','Banana']
   
