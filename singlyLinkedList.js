@@ -76,41 +76,50 @@ class SinglyLinkedList {
         this.length++;
         return this;
     }
+
+    get(idx) {
+        if (idx < 0 || idx >= this.length) return null;
+        else {
+            var node = this.head;
+            for(var count = 0; count < this.length; count++) {
+                if(count === idx) return node; 
+                node = node.next;
+            }
+        }
+
+        return null;
+    }
 }
 
 // TESTING
 
 var list = new SinglyLinkedList();
 
-// PUSH
+//  // PUSH
 console.log("PUSH");
-console.log(list.head, list.tail, list.length);
-list.push(5);
-console.log(list.head, list.tail, list.length);
-list.push(10);
-console.log(list.head, list.tail, list.length);
+console.log(list.push(5));
+console.log(list.push(10));
 
-// POP
+// // POP
 
-// console.log(list.head, list.tail, list.length);
-// list.pop();
-// console.log(list.head, list.tail, list.length);
-// list.pop();
-// console.log(list.head, list.tail, list.length);
+// console.log(list.pop());
+// console.log(list.pop());
+// console.log(list.pop());
 
-// SHIFT
-console.log("SHIFT");
-console.log(list.head, list.tail, list.length);
-console.log(list.shift());
-console.log(list.head, list.tail, list.length);
-console.log(list.shift());
-console.log(list.head, list.tail, list.length);
+// // SHIFT
+// console.log("SHIFT");
+// console.log(list.shift());
+// console.log(list.shift());
+// console.log(list.shift());
 
 // UNSHIFT
 console.log("UNSHIFT");
-// console.log(list.head, list.tail, list.length);
 console.log(list.unshift(3));
-// console.log(list.head, list.tail, list.length);
 console.log(list.unshift(6));
-// console.log(list.head, list.tail, list.length);
 
+// GET
+console.log("GET");
+console.log(0, list.get(0));
+console.log(1, list.get(1));
+console.log(10, list.get(10));
+console.log(-1, list.get(-1));
