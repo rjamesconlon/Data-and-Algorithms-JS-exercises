@@ -89,6 +89,16 @@ class SinglyLinkedList {
 
         return null;
     }
+
+    set(idx, val) {
+        let n = this.get(idx);
+        if (n !== null) {
+            n.val = val;
+            return true;
+        } 
+
+        return false;
+    }
 }
 
 // TESTING
@@ -123,3 +133,8 @@ console.log(0, list.get(0));
 console.log(1, list.get(1));
 console.log(10, list.get(10));
 console.log(-1, list.get(-1));
+
+// SET
+console.log("SET");
+console.log(0, list.set(0, 100));
+console.log(1, list.set(1, 50));
