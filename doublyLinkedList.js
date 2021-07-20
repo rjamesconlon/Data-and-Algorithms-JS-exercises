@@ -105,6 +105,47 @@ class DoublyLinkedList {
 
         return false;
     }
+
+    insert(idx, val) {
+        if (idx < 0 || idx >= this.length) return false;
+
+        if (idx === this.length - 1) {
+            this.push(val);
+            return true;
+        }
+
+        if (idx === 0) {
+            this.unshift(val);
+            return true;
+        }
+
+        var newNode = new Node(val);
+        var oldNode = this.get(idx);
+
+        newNode.prev = oldNode.prev;
+        newNode.next = oldNode;
+        
+        newNode.prev.next = newNode;
+        return true;
+    }
+
+    remove(idx) {
+        if (idx < 0 || idx >= this.length) return undefined;
+
+        if (idx === this.length - 1) {
+            return this.pop(val);
+        }
+
+        if (idx === 0) {
+            return this.shift(val);
+        }
+
+        let node = this.get(idx);
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
+
+        return node;
+    }
 }
 
 // TESTING

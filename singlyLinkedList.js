@@ -101,9 +101,9 @@ class SinglyLinkedList {
     }
 
     insert(idx, val) {
-        if (idx < 0 || idx > this.length) return false;
+        if (idx < 0 || idx >= this.length) return false;
 
-        if (idx === this.length) {
+        if (idx === this.length - 1) {
             this.push(val);
             return true;
         }
