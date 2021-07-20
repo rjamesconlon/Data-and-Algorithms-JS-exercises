@@ -149,6 +149,23 @@ class DoublyLinkedList {
 
         return node;
     }
+
+    reverse() {
+        if(this.length > 1) {
+            let node = this.tail;
+            this.tail = this.head;
+            this.head = node;
+        
+
+            for(let i = 0; i < this.length; i++) {
+                let tmp = node.next;
+                node.next = node.prev;
+                node.prev = tmp;
+                node = node.next;
+            }
+        }
+        return this;
+    }
 }
 
 // TESTING
@@ -177,3 +194,5 @@ DLL.unshift(20);
 // SET 
 console.log(DLL.set(2, 100));
 console.log(DLL.set(1, 2000));
+
+console.log(DLL.reverse());
