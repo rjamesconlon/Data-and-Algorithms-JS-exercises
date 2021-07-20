@@ -93,9 +93,17 @@ class DoublyLinkedList {
                 node = node.prev;
             }
         }
-
         return null;
+    }
 
+    set(idx, val) {
+        let node = this.get(idx);
+        if (node !== null) {
+            node.val = val;
+            return true;
+        } 
+
+        return false;
     }
 }
 
@@ -119,5 +127,9 @@ DLL.unshift(15);
 DLL.unshift(20);
 
 // GET
-console.log("index 2", DLL.get(2));
-console.log("index 1", DLL.get(1));
+// console.log("index 2", DLL.get(2));
+// console.log("index 1", DLL.get(1));
+
+// SET 
+console.log(DLL.set(2, 100));
+console.log(DLL.set(1, 2000));
