@@ -1,20 +1,20 @@
-class Node{
-    constructor(val){
+class Node {
+    constructor(val) {
         this.val = val
-        this.next = null;      
-        this.prev = null;      
+        this.next = null;
+        this.prev = null;
     }
 }
 
-class DoublyLinkedList{
+class DoublyLinkedList {
     constructor() {
         this.head = null;
         this.tail = null;
         this.length = 0;
     }
-    push(val){
+    push(val) {
         let node = new Node(val);
-        if(this.length === 0) {
+        if (this.length === 0) {
             this.head = node;
             this.tail = node;
         }
@@ -28,7 +28,7 @@ class DoublyLinkedList{
     }
 
     pop() {
-        if(this.length === 0) return undefined;
+        if (this.length === 0) return undefined;
 
         let node = this.tail;
         if (this.length === 1) {
@@ -46,9 +46,9 @@ class DoublyLinkedList{
     }
 
     shift() {
-        if(this.length === 0) return undefined
+        if (this.length === 0) return undefined
         let node = this.head;
-        if(this.length === 1) {
+        if (this.length === 1) {
             this.head = null;
             this.tail = null;
         }
@@ -63,7 +63,7 @@ class DoublyLinkedList{
 
     unshift(val) {
         let node = new Node(val);
-        if(this.length === 0) {
+        if (this.length === 0) {
             this.head = node;
             this.tail = node;
         }
@@ -75,14 +75,36 @@ class DoublyLinkedList{
         this.length++;
         return this;
     }
+
+    get(idx) {
+        if (idx < 0 || idx >= this.length) return null;
+
+        if(idx <= this.legnth/2) {
+            var node = this.head;
+            for (var count = 0; count < this.length; count++) {
+                if (count === idx) return node;
+                node = node.next;
+            }
+        }
+        else {
+            var node = this.tail;
+            for (var count = this.length - 1; count >= 0; count--) {
+                if (count === idx) return node;
+                node = node.prev;
+            }
+        }
+
+        return null;
+
+    }
 }
 
 // TESTING
 var DLL = new DoublyLinkedList();
 
 // PUSH
-console.log(DLL.push(5));
-console.log(DLL.push(10));
+DLL.push(5);
+DLL.push(10);
 
 // POP
 // console.log(DLL.pop());
@@ -93,5 +115,9 @@ console.log(DLL.push(10));
 // console.log(DLL.shift());
 
 // UNSHIFT
-console.log(DLL.unshift(15));
-console.log(DLL.unshift(20));
+DLL.unshift(15);
+DLL.unshift(20);
+
+// GET
+console.log("index 2", DLL.get(2));
+console.log("index 1", DLL.get(1));
