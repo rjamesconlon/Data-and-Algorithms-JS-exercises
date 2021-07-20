@@ -60,6 +60,21 @@ class DoublyLinkedList{
         this.length--;
         return node;
     }
+
+    unshift(val) {
+        let node = new Node(val);
+        if(this.length === 0) {
+            this.head = node;
+            this.tail = node;
+        }
+        else {
+            this.head.prev = node;
+            node.next = this.head;
+            this.head = node;
+        }
+        this.length++;
+        return this;
+    }
 }
 
 // TESTING
@@ -74,6 +89,9 @@ console.log(DLL.push(10));
 // console.log(DLL.pop());
 
 // SHIFT
-console.log(DLL.shift());
-console.log(DLL.shift());
+// console.log(DLL.shift());
+// console.log(DLL.shift());
 
+// UNSHIFT
+console.log(DLL.unshift(15));
+console.log(DLL.unshift(20));
