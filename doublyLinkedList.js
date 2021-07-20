@@ -44,6 +44,22 @@ class DoublyLinkedList{
         this.length--;
         return node;
     }
+
+    shift() {
+        if(this.length === 0) return undefined
+        let node = this.head;
+        if(this.length === 1) {
+            this.head = null;
+            this.tail = null;
+        }
+        else {
+            this.head = this.head.next;
+            this.head.prev = null;
+            node.next = null;
+        }
+        this.length--;
+        return node;
+    }
 }
 
 // TESTING
@@ -54,5 +70,10 @@ console.log(DLL.push(5));
 console.log(DLL.push(10));
 
 // POP
-console.log(DLL.pop());
-console.log(DLL.pop());
+// console.log(DLL.pop());
+// console.log(DLL.pop());
+
+// SHIFT
+console.log(DLL.shift());
+console.log(DLL.shift());
+
